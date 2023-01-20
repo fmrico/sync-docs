@@ -79,9 +79,17 @@ fi
 cd ..
 rm -rf work
 
-echo "merge_result=${MERGE_RESULT}" >> $GITHUB_OUTPUT
-echo "conflicts=${CONFLICTS}" >> $GITHUB_OUTPUT
-echo "completed=${PERCENTAGE_DIFF_FILES}" >> $GITHUB_OUTPUT
+echo "merge_result<<EOF" >> $GITHUB_OUTPUT
+echo "${MERGE_RESULT}" >> $GITHUB_OUTPUT
+echo "EOF" >> $GITHUB_OUTPUT
+
+echo "conflicts<<EOF" >> $GITHUB_OUTPUT
+echo "${CONFLICTS}" >> $GITHUB_OUTPUT
+echo "EOF" >> $GITHUB_OUTPUT
+
+echo "completed<<EOF" >> $GITHUB_OUTPUT
+echo "${PERCENTAGE_DIFF_FILES}" >> $GITHUB_OUTPUT
+echo "EOF" >> $GITHUB_OUTPUT
 
 if [[ $CONFLICTS ]]
 then 
